@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.app {
+    background-image: url('./components/cloudy-bg.jpg');
+    background-size: cover;
+    background-position: bottom;
+    transition: 0.4 ease-out;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;  }
+
+  main {
+    min-height: 100vh;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.75)
+    );
+    padding: 25px;
+    color: whitesmoke;
+  }
+
+  main .search {
+      display: block;
+      width: 100%;
+      padding: 15px;
+    
+      appearance: none;
+      background: none;
+      border: none;
+      outline: none;
+    
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 8px;
+    
+      color: #313131;
+      font-size: 20px;
+      transition: 0.4s ease;
+  }
+
+  main .search:focus {
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+  
+
+main .content {
+    margin-top: 8rem;
+}
+
+h1 {font-size: 84px;margin:.6rem;}
+h2 {font-size: 26px;margin:.6rem;}
+p {font-size: 24px;}
+
+main .content .hilo {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    margin-top:.5rem;
+}
+
+main .content .hilo p {
+    padding: 1rem;
+}
+
+  .app.rain {
+    background-image: url('./components/rain-bg.jpg');
+  }
+  
