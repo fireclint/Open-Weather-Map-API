@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import './index.css';
+import {
+  Container,
+  Main,
+  Search,
+  WeatherDisplay,
+  WeatherLocation,
+  WeatherDescription,
+  Temp,
+  TempRange,
+  TempRangeTxt,
+} from './components/Styles';
 
 function App() {
   const [location, setLocation] = useState('');
@@ -20,10 +30,10 @@ function App() {
   };
 
   return (
-    <div className='app'>
-      <main>
+    <Container>
+      <Main>
         <div>
-          <input
+          <Search
             onChange={(e) => setLocation(e.target.value)}
             value={location}
             onKeyPress={search}
@@ -33,26 +43,31 @@ function App() {
           />
         </div>
         {typeof weather.main != 'undefined' ? (
-          <div className='content'>
-            <h2>
+          <WeatherDisplay>
+            <WeatherLocation>
               {weather.name} {weather.sys.country}
-            </h2>
-            <p>
+            </WeatherLocation>
+            <WeatherDescription>
               <span style={{ textTransform: 'capitalize', fontSize: '24px' }}>
                 {weather.weather[0].main}
               </span>
-            </p>
-            <h1>{weather.main.temp.toFixed(0)}°F</h1>
-            <div className='hilo'>
-              <p>H: {weather.main.temp_max.toFixed(0)}°</p>
-              <p>L: {weather.main.temp_min.toFixed(0)}°</p>
-            </div>
-          </div>
+            </WeatherDescription>
+            <Temp>{weather.main.temp.toFixed(0)}°F</Temp>
+            <TempRange>
+              <TempRangeTxt>
+                H: {weather.main.temp_max.toFixed(0)}°
+              </TempRangeTxt>
+              <TempRangeTxt>
+                L: {weather.main.temp_min.toFixed(0)}°
+              </TempRangeTxt>
+            </TempRange>
+          </WeatherDisplay>
         ) : (
           ''
         )}
-      </main>
-    </div>
+        <br />
+      </Main>
+    </Container>
   );
 }
 
